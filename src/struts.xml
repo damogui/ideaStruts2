@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+    <!--<constant name="struts.devMode" value="true"/>-->
+    <package name="default" extends="struts-default">
+
+        <!--首页请求，name对应index.jsp中的action名字-->
+        <action name="product-input">
+
+            <!--转到input.jsp页面-->
+            <result>/WEB-INF/pages/input.jsp</result>
+
+        </action>
+
+
+        <!--第二个action请求，name对应input.jsp下的action名字
+        引用对象以及其方法-->
+        <action name="product-save" class="beans.Production" method="save">
+
+            <!--引用方法中返回的detai，对应name，展示到details下-->
+            <result name="detail">/WEB-INF/pages/details.jsp</result>
+
+        </action>
+
+    </package>
+</struts>
